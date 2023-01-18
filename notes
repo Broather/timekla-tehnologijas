@@ -1,0 +1,16 @@
+current web structure:
+    web.php -> '/' => HomeController
+
+    HomeController -> views/home/index.blade.php
+
+    index.blade.php extends layout.blade.php
+
+    layout.blade.php -> html boilerplate-ish with css from bootstrap
+
+current structure of my_database:
+    from 'php artisan migrate':
+        failed_jobs
+        migrations
+        password_resets
+        personal_access_tokens
+        users
