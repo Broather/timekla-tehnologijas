@@ -27,6 +27,7 @@ class AuthorController extends Controller
             'author.form', 
             [
                 'title' => 'Pievienot autoru'
+                'author' => new Author()
             ]
         );
     }
@@ -39,8 +40,27 @@ class AuthorController extends Controller
         $author = new Author();
         $author->name = $validatedData['name'];
         $author->save();
-        
+
         return redirect('/authors');
     }
-   
+    public function update(Author $author)
+    {
+        return view(
+        'author.form',
+        [
+            'title' => 'Rediģēt autoru',
+            'author' => $author
+        ]
+        );
+    }
+    // how does it know to send over author along with form data?
+    public function patch(Author $author, Request $request)
+    {
+        $validatedData = $request->validate([
+        'name' => 'required',
+        ]);
+        $author->name = $validatedData['name'];
+        $author->save();
+        return redirect('/authors');
+    }
 }

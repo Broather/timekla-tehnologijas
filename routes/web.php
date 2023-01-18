@@ -21,7 +21,12 @@ use App\Http\Controllers\AuthorController;
 // izsauc HomeController index()
 Route::get('/', [HomeController::class, 'index']);
 Route::get('/authors', [AuthorController::class, 'list']);
+
 // rāda formu
 Route::get('/authors/create', [AuthorController::class, 'create']);
 // apstrādā formas datus
 Route::post('/authors/put', [AuthorController::class, 'put']);
+
+// {author} ir autora id kam tiks veiktas izmaiņas
+Route::get('/authors/update/{author}', [AuthorController::class, 'update']);
+Route::post('/authors/patch/{author}', [AuthorController::class, 'patch']);

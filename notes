@@ -29,9 +29,13 @@ current structure of "my_database":
             |updated_at
 
 tālāk jāpievieno saturs un CRUD operācijas ar to saturu
-    pievienojām "authors" tabulu
-    pievienojam autoru sarakstu (cRud - Read)
+    pievienojām "authors" tabulu ('php artisan make:migration create_authors_table')
+    pievienojam autors/list (cRud - Read)
         <!-- use Likes\Every\Thing\To\Be\With\A\Big\First\Letter -->
         jauns kontrolleris ('php artisan make:controller AuthorController')
         jauns \views\view ()
         pievienot web.php maršrutēšanas ierakstu uz kontrollera
+    pievienojam autors/create (Crud - Create)
+        papildināt AuthorController ar create() un put() kur create satur formu kas post -> put() kas validē un pievieno datubāzei ja valid.
+    pievienojam autors/update (crUd - Update)
+        papildināt AuthorController ar update() un patch() kur update tiek izsaukts no "Labot" pogas href un patch() maģiski paķer vecos author datus kopā ar formas datiem

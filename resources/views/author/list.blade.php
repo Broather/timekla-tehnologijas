@@ -16,7 +16,7 @@
         <tr>
             <td>{{ $author->id }}</td>
             <td>{{ $author->name }}</td>
-            <td>Labot / Dzēst</td>
+            <td><a href="/authors/update/{{ $author->id }}" class="btn btn-outline-primary btnsm">Labot</a> / Dzēst</td>
         </tr>
         @endforeach
     </tbody>
