@@ -30,3 +30,5 @@ Route::post('/authors/put', [AuthorController::class, 'put']);
 // {author} ir autora id kam tiks veiktas izmaiņas
 Route::get('/authors/update/{author}', [AuthorController::class, 'update']);
 Route::post('/authors/patch/{author}', [AuthorController::class, 'patch']);
+
+Route::post('/authors/delete/{author}', [AuthorController::class, 'delete']);

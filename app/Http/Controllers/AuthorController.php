@@ -26,7 +26,7 @@ class AuthorController extends Controller
         return view(
             'author.form', 
             [
-                'title' => 'Pievienot autoru'
+                'title' => 'Pievienot autoru',
                 'author' => new Author()
             ]
         );
@@ -61,6 +61,11 @@ class AuthorController extends Controller
         ]);
         $author->name = $validatedData['name'];
         $author->save();
+        return redirect('/authors');
+    }
+    public function delete(Author $author)
+    {
+        $author->delete();
         return redirect('/authors');
     }
 }

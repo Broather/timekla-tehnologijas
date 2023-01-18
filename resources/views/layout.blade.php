@@ -2,6 +2,7 @@
 <html lang="lv">
 
     <head>
+        <script src="/js/main.js"></script>
         <meta charset="utf-8">
         <title>PD 2 - {{ $title }}</title>
         <meta name="description" content="">
