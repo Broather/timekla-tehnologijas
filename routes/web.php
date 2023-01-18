@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\AuthorController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -17,4 +18,10 @@ use App\Http\Controllers\HomeController;
 //     return view('welcome');
 // });
 
+// izsauc HomeController index()
 Route::get('/', [HomeController::class, 'index']);
+Route::get('/authors', [AuthorController::class, 'list']);
+// rāda formu
+Route::get('/authors/create', [AuthorController::class, 'create']);
+// apstrādā formas datus
+Route::post('/authors/put', [AuthorController::class, 'put']);
