@@ -3,14 +3,35 @@ current web structure:
 
     HomeController -> views/home/index.blade.php
 
-    index.blade.php extends layout.blade.php
+    index.blade.php (has @section('content')) extends layout.blade.php (has @yield('content'))
 
     layout.blade.php -> html boilerplate-ish with css from bootstrap
 
-current structure of my_database:
+<!-- ./database/migrations satur katras tabulas "dump" failu un ar 'php artisan migrate' izmaina datubāzes tabulas -->
+
+<!-- 'php artisan make:migration create_authors_table' lai izveidotu 'authors' tabulu -->
+
+<!-- 'php artisan migrate:rollback' lai izsauktu iepriekšējās migrācijas down() funkciju
+'php artisan migrate:rollback --step=5' lai izsauktu iepriekšējo 5 migrāciju down() funkcijas
+'php artisan migrate:reset' lai izsauktu visu iepriekšējo migrāciju down() funkcijas -->
+current structure of "my_database":
     from 'php artisan migrate':
-        failed_jobs
-        migrations
-        password_resets
-        personal_access_tokens
-        users
+        failed_jobs:
+        migrations:
+        password_resets:
+        personal_access_tokens:
+        users:
+    from 'php artisan make:migration create_authors_table', edited the migration file, and 'php artisan migrate':
+        authors:
+            |id
+            |name
+            |created_at
+            |updated_at
+
+tālāk jāpievieno saturs un CRUD operācijas ar to saturu
+    pievienojām "authors" tabulu
+    pievienojam autoru sarakstu (cRud - Read)
+        <!-- use Likes\Every\Thing\To\Be\With\A\Big\First\Letter -->
+        jauns kontrolleris ('php artisan make:controller AuthorController')
+        jauns \views\view ()
+        pievienot web.php maršrutēšanas ierakstu uz kontrollera
