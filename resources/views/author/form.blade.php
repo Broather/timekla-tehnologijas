@@ -13,7 +13,7 @@
         <label for="author-name" class="form-label">Autora vārds</label>
         <!-- how does old() work -->
         <input type="text" class="form-control @error('name') is-invalid @enderror" id="author-name" name="name"
-            value="{{ old('name', $author->name) }}">
+            value="{{ old('name', $author->name) }}" autofocus>
         @error('name')
         <p class="invalid-feedback">{{ $errors->first('name') }}</p>
         @enderror
