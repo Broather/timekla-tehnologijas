@@ -27,6 +27,19 @@ current structure of "my_database":
             |name
             |created_at
             |updated_at
+    from 'php artisan make:model -mc Book', edited the migration file, and 'php artisan migrate':
+        books:
+            |idbook
+            |author_id
+            |name
+            |description
+            |price
+            |year
+            |image
+            |display
+            |created_at
+            |updated_at
+
 
 tālāk jāpievieno saturs un CRUD operācijas ar to saturu
     pievienojām "authors" tabulu ('php artisan make:migration create_authors_table')
@@ -40,5 +53,8 @@ tālāk jāpievieno saturs un CRUD operācijas ar to saturu
     pievienojam autors/update/<id> (crUd - Update)
         papildināt AuthorController ar update() un patch() kur update tiek izsaukts no "Labot" pogas href un patch() maģiski paķer vecos author datus kopā ar formas datiem
     pievienojam autors/delete/<id> (cruD - Delete)
-        papildināt AuthorController ar delete() kas vienkārši bez domāšanas izdzēš $author kuru maģiski pēc id dabū. Visa domāšana notiek list.blade.php delete pogā ar \public\js\main.js skriptu.
+        papildināt AuthorController ar delete() kas vienkārši bez domāšanas izdzēš $author kuru maģiski pēc id dabū. Visa domāšana notiek list.blade.php delete pogā ar \public\js\main.js skriptu
 
+    <!-- Controller took a HOT minute to get made -->
+    pievienojam "books" tabulu kura iekļaus autoru ('php artisan make:model -mc Book' ) <!-- -m: migrate creates create_books_table.php, -c controller creates BookController -->
+    
