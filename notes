@@ -60,3 +60,6 @@ tālāk jāpievieno saturs un CRUD operācijas ar to saturu
     pievienot tās pašas CRUD funkcijas BooksController, tikai authors par books pārdēvēt un books.form papildus padot visus autorus datubāzē, lai varētu dropdown izvēli uztaisīt
 
     tālāk jāpievieno images grāmatām
+    pivienot formā, lai image prasītu
+
+    masveida piešķiršana: https://laravel.com/docs/9.x/eloquent#mass-assignment

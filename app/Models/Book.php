@@ -9,6 +9,7 @@ use App\Models\Author;
 class Book extends Model
 {
     use HasFactory;
+    protected $fillable = ['name', 'idauthor', 'description', 'price', 'year'];
     // izsauc ar $book->author()
     public function author()
     {

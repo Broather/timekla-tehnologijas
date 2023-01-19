@@ -70,7 +70,7 @@ class BookController extends Controller
     {
         $validatedData = $request->validate([
             'name' => 'required|min:3|max:256',
-            'id' => 'required',
+            'idauthor' => 'required',
             'description' => 'nullable',
             'price' => 'nullable|numeric',
             'year' => 'numeric',
@@ -78,11 +78,8 @@ class BookController extends Controller
             'display' => 'nullable'
         ]);
 
-        $book->name = $validatedData['name'];
-        $book->idauthor = $validatedData['id'];
-        $book->description = $validatedData['description'];
-        $book->price = $validatedData['price'];
-        $book->year = $validatedData['year'];
+        // piešķir book tās key vērtības kuras atrodas Models/Book $fillable mainīgā
+        $book->fill($validatedData);
         $book->image = ($validatedData['image'] ?? $book->image);
         $book->display = (bool) ($validatedData['display'] ?? false);
 

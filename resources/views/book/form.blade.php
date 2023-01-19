@@ -21,15 +21,15 @@
     </div>
     <div class="mb-3">
         <label for="book-author" class="form-label">Autors</label>
-        <select id="book-author" name="id" class="form-select @error('id') is-invalid @enderror">
+        <select id="book-author" name="idauthor" class="form-select @error('idauthor') is-invalid @enderror">
             @foreach($authors as $author)
-            <option value="{{ $author->id }}" @if ($author->id == old('id', $book->author->id ??
+            <option value="{{ $author->id }}" @if ($author->id == old('idauthor', $book->author->id ??
                 false)) selected @endif>{{ $author->name }}
             </option>
             @endforeach
         </select>
-        @error('id')
-        <p class="invalid-feedback">{{ $errors->first('id') }}</p>
+        @error('idauthor')
+        <p class="invalid-feedback">{{ $errors->first('idauthor') }}</p>
         @enderror
     </div>
     <div class="mb-3">
