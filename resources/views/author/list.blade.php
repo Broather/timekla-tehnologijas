@@ -14,7 +14,7 @@
     <tbody>
         @foreach($items as $author)
         <tr>
-            <td>{{ $author->id }}</td>
+            <td>{{ $author->idauthor }}</td>
             <td>{{ $author->name }}</td>
             <td><a href="/authors/update/{{ $author->id }}" class="btn btn-outline-primary btn-sm">Labot</a>
                 <!-- delete poga var būt poga ja zinātu kā apturēt href, bet zinam kā apturēt formas submit, tāds der (un form iepriekš bija deletionform klase, to izlaboju) -->

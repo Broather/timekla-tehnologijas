@@ -22,6 +22,7 @@ use App\Http\Controllers\BookController;
 
 // izsauc HomeController index()
 Route::get('/', [HomeController::class, 'index']);
+
 Route::get('/authors', [AuthorController::class, 'list']);
 
 // rāda formu

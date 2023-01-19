@@ -12,7 +12,7 @@ class Author extends Model
     // izsauc ar $author->books()
     public function books()
     {
-        return $this->hasMany(Book::class, 'idbook');
+        return $this->hasMany(Book::class);
     }
 
 }

@@ -62,7 +62,7 @@
             <div class="container">
                 <div class="row">
                     <footer class="col-md-12">
-                        Ventspils Augstskola, 2022
+                        Ventspils Augstskola, 2023
                     </footer>
                 </div>
             </div>

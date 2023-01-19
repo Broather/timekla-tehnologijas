@@ -1,12 +1,12 @@
 <!-- Receives:
-'title' => 'Pievienot grāmatu',
+'title' => 'Pievienot|Rediģēt grāmatu',
 'book' => new Book(),
 'authors' => $authors, -->
 @extends('layout')
 @section('content')
 <h1>{{ $title }}</h1>
 @if ($errors->any())
-<div class="alert alert-danger">Lūdzu, novērsiet radušās kļūdas!</div>
+<div class="alert alert-danger">Lūdzu, novērsiet radušās kļūdas!: {{ $errors }}</div>
 @endif
 <form method="post" action="{{ $book->exists ? '/books/patch/' . $book->id : '/books/put' }}">
     @csrf
@@ -20,15 +20,15 @@
     </div>
     <div class="mb-3">
         <label for="book-author" class="form-label">Autors</label>
-        <select id="book-author" name="idauthor" class="form-select @error('idauthor') is-invalid @enderror">
+        <select id="book-author" name="id" class="form-select @error('id') is-invalid @enderror">
             @foreach($authors as $author)
-            <option value="{{ $author->idauthor }}" @if ($author->idauthor == old('idauthor', $book->author->idauthor ??
+            <option value="{{ $author->id }}" @if ($author->id == old('id', $book->author->id ??
                 false)) selected @endif>{{ $author->name }}
             </option>
             @endforeach
         </select>
-        @error('idauthor')
-        <p class="invalid-feedback">{{ $errors->first('idauthor') }}</p>
+        @error('id')
+        <p class="invalid-feedback">{{ $errors->first('id') }}</p>
         @enderror
     </div>
     <div class="mb-3">

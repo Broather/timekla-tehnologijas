@@ -17,14 +17,14 @@
     <tbody>
         @foreach($items as $book)
         <tr>
-            <td>{{ $book->idbook }}</td>
+            <td>{{ $book->id }}</td>
             <td>{{ $book->name }}</td>
             <td>{{ $book->author->name }}</td>
             <td>{{ $book->year }}</td>
             <td>&euro; {{ number_format($book->price, 2, '.') }}</td>
             <td>{!! $book->display ? '&#10004;&#65039;' : '&#10060;' !!}</td>
             <td>
-                <a href="/books/update/{{ $book->id }}" class="btn btn-outline-primary btn-sm">Labot</a> /
+                <a href="/books/update/{{ $book->id }}" class="btn btn-outline-primary btn-sm">Labot</a>
                 <form method="post" action="/books/delete/{{ $book->id }}" class="deletion-form d-inline">
                     @csrf
                     <button type="submit" class="btn btn-outline-danger btn-sm">Dzēst</button>
