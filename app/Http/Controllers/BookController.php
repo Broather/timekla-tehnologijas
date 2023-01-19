@@ -38,37 +38,9 @@ class BookController extends Controller
     
     public function put(Request $request){
 
-        $validatedData = $request->validate([
-                'name' => 'required|min:3|max:256',
-                'id' => 'required',
-                'description' => 'nullable',
-                'price' => 'nullable|numeric',
-                'year' => 'numeric',
-                'image' => 'nullable|image',
-                'display' => 'nullable'
-            ]);
-            
+        
         $book = new Book();
-        $book->name = $validatedData['name'];
-        $book->idauthor = $validatedData['id'];
-        $book->description = $validatedData['description'];
-        $book->price = $validatedData['price'];
-        $book->year = $validatedData['year'];
-        $book->image = $validatedData['image'];
-        $book->display = (bool) ($validatedData['display'] ?? false);
-
-        if ($request->hasFile('image')) {
-            $uploadedFile = $request->file('image');
-            $extension = $uploadedFile->clientExtension();
-            $name = uniqid();
-            $book->image = $uploadedFile->storePubliclyAs(
-                '/',
-                $name.'.'.$extension,
-                'uploads'
-            );
-        }
-           
-        $book->save();
+        $this->saveBookData($book, $request);
 
         return redirect('/books');
     }
@@ -86,6 +58,16 @@ class BookController extends Controller
     }
     public function patch(Book $book, Request $request){
         
+        $this->saveBookData($book, $request);   
+        return redirect('/books');
+    }
+    public function delete(Book $book){
+        $book->delete();
+        return redirect('/books');
+    }
+
+    private function saveBookData(Book $book, Request $request)
+    {
         $validatedData = $request->validate([
             'name' => 'required|min:3|max:256',
             'id' => 'required',
@@ -95,7 +77,7 @@ class BookController extends Controller
             'image' => 'nullable|image',
             'display' => 'nullable'
         ]);
-        
+
         $book->name = $validatedData['name'];
         $book->idauthor = $validatedData['id'];
         $book->description = $validatedData['description'];
@@ -103,24 +85,18 @@ class BookController extends Controller
         $book->year = $validatedData['year'];
         $book->image = ($validatedData['image'] ?? $book->image);
         $book->display = (bool) ($validatedData['display'] ?? false);
-        $book->save();
 
         if ($request->hasFile('image')) {
-            $uploadedFile = $request->file('image');
-            $extension = $uploadedFile->clientExtension();
-            $name = uniqid();
-            $book->image = $uploadedFile->storePubliclyAs(
-                '/',
-                $name.'.'.$extension,
-                'uploads'
-            );
+        $uploadedFile = $request->file('image');
+        $extension = $uploadedFile->clientExtension();
+        $name = uniqid();
+        $book->image = $uploadedFile->storePubliclyAs(
+        '/',
+        $name . '.' . $extension,
+        'uploads'
+        );
         }
-            
-        return redirect('/books');
-    }
-    public function delete(Book $book){
-        $book->delete();
-        return redirect('/books');
+        $book->save();
     }
 
 
