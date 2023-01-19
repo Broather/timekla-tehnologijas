@@ -63,3 +63,5 @@ tālāk jāpievieno saturs un CRUD operācijas ar to saturu
     pivienot formā, lai image prasītu
 
     masveida piešķiršana: https://laravel.com/docs/9.x/eloquent#mass-assignment
+
+    klase grāmatu izveidošanas un rediģēšanas pieprasījumu validācijai

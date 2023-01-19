@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\AuthorController;
 use App\Http\Controllers\BookController;
+use App\Http\Controllers\GenreController;
 
 /*
 |--------------------------------------------------------------------------
@@ -45,3 +46,13 @@ Route::get('/books/update/{book}', [BookController::class, 'update']);
 Route::post('/books/patch/{book}', [BookController::class, 'patch']);
 
 Route::post('/books/delete/{book}', [BookController::class, 'delete']);
+
+// tas pats ar genre
+Route::get('/genres', [GenreController::class, 'list']);
+Route::get('/genres/create', [GenreController::class, 'create']);
+Route::post('/genres/put', [GenreController::class, 'put']);
+
+Route::get('/genres/update/{book}', [GenreController::class, 'update']);
+Route::post('/genres/patch/{book}', [GenreController::class, 'patch']);
+
+Route::post('/genres/delete/{book}', [GenreController::class, 'delete']);

@@ -30,6 +30,9 @@
                                     <li class="nav-item">
                                         <a class="nav-link" href="/books">Grāmatas</a>
                                     </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="/genres">Žanri</a>
+                                    </li>
                                 </ul>
                             </div>
                         </nav>

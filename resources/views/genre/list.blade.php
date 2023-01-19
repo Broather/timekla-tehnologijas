@@ -7,18 +7,18 @@
     <thead class="thead-light">
         <tr>
             <th>ID</td>
-            <th>Vārds</td>
+            <th>Nosaukums</td>
             <th>&nbsp;</td>
         </tr>
     </thead>
     <tbody>
-        @foreach($items as $author)
+        @foreach($items as $genre)
         <tr>
-            <td>{{ $author->id }}</td>
-            <td>{{ $author->name }}</td>
-            <td><a href="/authors/update/{{ $author->id }}" class="btn btn-outline-primary btn-sm">Labot</a>
+            <td>{{ $genre->id }}</td>
+            <td>{{ $genre->name }}</td>
+            <td><a href="/genres/update/{{ $genre->id }}" class="btn btn-outline-primary btn-sm">Labot</a>
                 <!-- delete poga var būt poga ja zinātu kā apturēt href, bet zinam kā apturēt formas submit, tāds der (un form iepriekš bija deletionform klase, to izlaboju) -->
-                <form action="/authors/delete/{{ $author->id }}" method="post" class="deletion-form d-inline">
+                <form action="/genres/delete/{{ $genre->id }}" method="post" class="deletion-form d-inline">
                     @csrf
                     <button type="submit" class="btn btn-outline-danger btn-sm">Dzēst</button>
                 </form>
@@ -30,5 +30,5 @@
 @else
 <p>Nav atrasts neviens ieraksts</p>
 @endif
-<a href="/authors/create" class="btn btn-primary">Izveidot jaunu</a>
+<a href="/genres/create" class="btn btn-primary">Izveidot jaunu</a>
 @endsection

@@ -17,6 +17,7 @@ return new class extends Migration
         $table->id();
 
         $table->foreignId('idauthor');
+        $table->foreignId('idgenre');
         $table->string('name', 256);
         $table->text('description')->nullable();
         $table->decimal('price', 8, 2)->nullable();
