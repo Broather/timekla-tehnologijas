@@ -44,7 +44,7 @@ class BookController extends Controller
                 'description' => 'nullable',
                 'price' => 'nullable|numeric',
                 'year' => 'numeric',
-                // 'image' => 'nullable|image',
+                'image' => 'nullable|image',
                 'display' => 'nullable'
             ]);
             
@@ -54,9 +54,20 @@ class BookController extends Controller
         $book->description = $validatedData['description'];
         $book->price = $validatedData['price'];
         $book->year = $validatedData['year'];
-        // $book->image = $validatedData['image'];
+        $book->image = $validatedData['image'];
         $book->display = (bool) ($validatedData['display'] ?? false);
 
+        if ($request->hasFile('image')) {
+            $uploadedFile = $request->file('image');
+            $extension = $uploadedFile->clientExtension();
+            $name = uniqid();
+            $book->image = $uploadedFile->storePubliclyAs(
+                '/',
+                $name.'.'.$extension,
+                'uploads'
+            );
+        }
+           
         $book->save();
 
         return redirect('/books');
@@ -81,7 +92,7 @@ class BookController extends Controller
             'description' => 'nullable',
             'price' => 'nullable|numeric',
             'year' => 'numeric',
-            // 'image' => 'nullable|image',
+            'image' => 'nullable|image',
             'display' => 'nullable'
         ]);
         
@@ -90,9 +101,20 @@ class BookController extends Controller
         $book->description = $validatedData['description'];
         $book->price = $validatedData['price'];
         $book->year = $validatedData['year'];
-        // $book->image = $validatedData['image'];
+        $book->image = ($validatedData['image'] ?? $book->image);
         $book->display = (bool) ($validatedData['display'] ?? false);
         $book->save();
+
+        if ($request->hasFile('image')) {
+            $uploadedFile = $request->file('image');
+            $extension = $uploadedFile->clientExtension();
+            $name = uniqid();
+            $book->image = $uploadedFile->storePubliclyAs(
+                '/',
+                $name.'.'.$extension,
+                'uploads'
+            );
+        }
             
         return redirect('/books');
     }

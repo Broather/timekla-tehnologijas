@@ -56,5 +56,7 @@ tālāk jāpievieno saturs un CRUD operācijas ar to saturu
         papildināt AuthorController ar delete() kas vienkārši bez domāšanas izdzēš $author kuru maģiski pēc id dabū. Visa domāšana notiek list.blade.php delete pogā ar \public\js\main.js skriptu
 
     <!-- Controller took a HOT minute to get made -->
-    pievienojam "books" tabulu kura iekļaus autoru ('php artisan make:model -mc Book' ) <!-- -m: migrate creates create_books_table.php, -c controller creates BookController -->
-    
+    pievienojam "books" tabulu kura iekļaus autora id ('php artisan make:model -mc Book' ) <!-- -m: migrate creates create_books_table.php, -c controller creates BookController -->
+    pievienot tās pašas CRUD funkcijas BooksController, tikai authors par books pārdēvēt un books.form papildus padot visus autorus datubāzē, lai varētu dropdown izvēli uztaisīt
+
+    tālāk jāpievieno images grāmatām

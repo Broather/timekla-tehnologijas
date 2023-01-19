@@ -14,7 +14,7 @@ return new class extends Migration
     public function up(){
 
         Schema::create('authors', function (Blueprint $table) {
-            $table->id('idauthor');
+            $table->id();
             $table->string('name', 256);
             $table->timestamp('created_at')->useCurrent();
             $table->timestamp('updated_at')->useCurrent();
