@@ -14,7 +14,7 @@
                 <div class="row">
                     <header class="col-md-12">
                         <nav class="navbar navbar-light navbar-expand-md">
-                            <span class="navbar-brand mb-0 h1">Vēlāk nomainīšu :)</span>
+                            <span class="navbar-brand mb-0 h1">Grāmatas, autori un žanri</span>
                             <button class="navbar-toggler" type="button" data-bstoggle="collapse"
                                 data-bs-target="#navbarNav">
                                 <span class="navbar-toggler-icon"></span>
@@ -48,7 +48,7 @@
                 <div class="row">
                     <div class="col-md-12">
                         <header class="navbar navbar-light">
-                            <span class="navbar-brand mb-0 h1">:)</span>
+                            <span class="navbar-brand mb-0 h1">Grāmatas, autori un žanri</span>
                         </header>
                     </div>
                 </div>
